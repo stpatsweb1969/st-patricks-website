@@ -1227,3 +1227,20 @@
 - [x] Verify Staff page shows all 24 members across Clergy, Parish Staff, Parish Leadership, Ministry Leaders sections
 - [ ] Upload hero image and parish photos to S3 via admin dashboard (requires user action)
 - [ ] Publish the site via the Manus UI Publish button
+
+## Dynamic Next Mass Countdown Timer (June 2026)
+
+- [ ] Build standalone NextMassCountdown component with live second-by-second countdown
+- [ ] Show "Mass in progress" state with elapsed time when a Mass is currently happening
+- [ ] Show day, time, and countdown pill (e.g. "Sunday · 10:30 AM · in 4h 12m 33s")
+- [ ] Integrate into homepage below the This Week section as a dedicated card
+- [ ] Upgrade hero countdown line to tick every second (not just every minute)
+- [ ] Handle edge cases: no upcoming Mass, seasonal 12:30 PM exclusion, First Friday Adoration
+
+## Key Dates 2026-2027 Update (June 2026)
+
+- [ ] Clear existing 2026-2027 key dates and re-seed from bulletin sheet (BBQ excluded)
+- [ ] Seed all 2026 events (Sept–Dec) with correct dates, categories, and locations
+- [ ] Seed all 2027 events (Jan–June) with correct dates, categories, and locations
+- [ ] Wire NextMassCountdown component into homepage below This Week section
+- [ ] Upgrade hero countdown to tick every second
