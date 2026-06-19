@@ -1183,9 +1183,9 @@
 - [x] Set VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY secrets
 - [x] All 82 vitest tests passing
 - [x] Zero TypeScript errors
-- [ ] Push final code back to GitHub repository
-- [ ] Configure Google Maps API key for map features
-- [ ] Configure Google Calendar ICS feed URL for events sync
-- [ ] Upload hero image and parish photos to S3 via admin dashboard
-- [ ] Add initial staff members via admin dashboard
+- [x] Push final code back to GitHub repository
+- [ ] Configure Google Maps API key for map features (requires user to provide key)
+- [x] Seed ICS URLs for Parish, CCD, and CYO calendars via seed script
+- [ ] Upload hero image and parish photos to S3 via admin dashboard (requires user action)
+- [x] Seed all 22 staff members via seed script
 - [ ] Publish the site via the Manus UI Publish button
