@@ -124,7 +124,6 @@ export default function AllCalendars() {
 
   // Weather enrichment for events within 7 days
   const weatherInput = useMemo(() => {
-    if (activeSource === "key-dates") return [];
     if (!filteredEvents || filteredEvents.length === 0) return [];
     const now = new Date();
     const sevenDays = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
@@ -141,7 +140,7 @@ export default function AllCalendars() {
 
   const { data: weatherData } = trpc.weather.forEvents.useQuery(
     { events: weatherInput },
-    { enabled: weatherInput.length > 0 && activeSource !== "key-dates", staleTime: 60 * 60 * 1000 }
+    { enabled: weatherInput.length > 0, staleTime: 60 * 60 * 1000 }
   );
 
   // Page metadata

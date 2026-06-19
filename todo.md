@@ -1252,3 +1252,9 @@
 - [ ] Update seed script categories to match bulletin topics
 - [ ] Add filter tab UI to NewsEvents page (All, Parish, CCD, CYO, Teen Life, Social)
 - [ ] Persist selected filter in URL query param for shareability
+
+## Homepage Restore (Worship-First Design)
+
+- [x] Fix 1: Restore cinematic hero — Ken Burns animation, fixed height, time-of-day greeting, weather chip visible on all breakpoints (remove hidden md:block)
+- [x] Fix 2: Remove standalone NextMassCountdown section from Home.tsx (hero already shows next mass)
+- [x] Fix 3: Remove activeSource !== "key-dates" exclusion from AllCalendars weather query

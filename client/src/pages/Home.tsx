@@ -3,7 +3,6 @@ import { trpc } from "@/lib/trpc";
 import { PrayerWall } from "@/components/PrayerWall";
 import { SEO, CHURCH_STRUCTURED_DATA } from "@/components/SEO";
 import { ThisWeekAccordion } from "@/components/ThisWeekAccordion";
-import { NextMassCountdown } from "@/components/NextMassCountdown";
 import { useReveal } from "@/hooks/useReveal";
 import {
   HeroSection,
@@ -35,12 +34,7 @@ export default function Home() {
       <RainAlertBanner />
 
       <div ref={revealRef}>
-        {/* Beat 2a: Next Mass Countdown — live second-by-second timer */}
-        <section className="reveal container mb-4 sm:mb-5">
-          <NextMassCountdown />
-        </section>
-
-        {/* Beat 2b: This Week — Day-by-day schedule accordion (worship schedule first) */}
+        {/* Beat 2: This Week — Day-by-day schedule accordion (worship schedule first) */}
         <section className="reveal container mb-6 sm:mb-8">
           <ThisWeekAccordion />
         </section>
