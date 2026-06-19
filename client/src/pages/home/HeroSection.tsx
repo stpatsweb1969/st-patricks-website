@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { ArrowRight, Wind, Droplets, Thermometer, Sunrise, Sunset, Clock, CalendarPlus } from "lucide-react";
+import { ArrowRight, Wind, Droplets, Thermometer, Sunrise, Sunset, Clock, CalendarPlus, MapPin } from "lucide-react";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { ColorfulWeatherIcon } from "@/components/WeatherIcons";
 import { Button } from "@/components/ui/button";
@@ -258,6 +258,20 @@ export function HeroSection() {
                 Mass Times
               </Button>
             </Link>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=29+Cox+Avenue+Armonk+NY+10504"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="border border-white/30 text-white hover:border-white/60 hover:bg-white/10 font-semibold px-7 py-3 rounded-full press-scale backdrop-blur-sm bg-white/5"
+              >
+                <MapPin className="w-4 h-4 mr-1.5" />
+                Get Directions
+              </Button>
+            </a>
           </div>
         </div>
       </div>
