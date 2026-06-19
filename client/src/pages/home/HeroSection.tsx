@@ -68,12 +68,12 @@ export function HeroSection() {
       className="relative min-h-[520px] sm:min-h-[560px] md:min-h-[600px] flex flex-col overflow-hidden"
       aria-label="Parish welcome"
     >
-      {/* Ken Burns cinematic image */}
-      <div className="absolute inset-0 will-change-transform">
+      {/* Full church image — no cropping, no scaling, natural dimensions */}
+      <div className="absolute inset-0">
         <img
           src="/manus-storage/church-exterior_60bbb0cd.webp"
           alt="St. Patrick's Church front exterior"
-          className="w-full h-[115%] object-cover object-center -translate-y-[7%] hero-ken-burns"
+          className="w-full h-full object-contain object-center"
         />
       </div>
 
@@ -268,8 +268,7 @@ export function HeroSection() {
         <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent" style={{ animation: 'scrollLine 2s ease infinite' }} />
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/60 to-transparent" />
+
     </section>
   );
 }
