@@ -32,10 +32,12 @@ export const newsPosts = mysqlTable("news_posts", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   authorId: int("authorId"),
+  category: mysqlEnum("category", ["parish", "ccd", "cyo", "teen_life", "social", "general"]).default("general").notNull(),
 });
 
 export type NewsPost = typeof newsPosts.$inferSelect;
 export type InsertNewsPost = typeof newsPosts.$inferInsert;
+export type NewsCategory = "parish" | "ccd" | "cyo" | "teen_life" | "social" | "general";
 
 /**
  * Weekly bulletins (PDF uploads)

@@ -8,6 +8,13 @@
       "when": 1781834212288,
       "tag": "0000_regular_hannibal_king",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1781842544500,
+      "tag": "0001_yellow_toxin",
+      "breakpoints": true
     }
   ]
 }

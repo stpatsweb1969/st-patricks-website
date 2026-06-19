@@ -1,0 +1,1 @@
+ALTER TABLE `news_posts` ADD `category` enum('parish','ccd','cyo','teen_life','social','general') DEFAULT 'general' NOT NULL;

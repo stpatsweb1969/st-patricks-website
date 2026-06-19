@@ -1244,3 +1244,11 @@
 - [x] Seed all 2027 events (Jan–June) with correct dates, categories, and locations
 - [x] Wire NextMassCountdown component into homepage below This Week section
 - [x] Upgrade hero countdown to tick every second
+
+## News & Events Category Filters
+
+- [ ] Add category column to news_posts table (enum: parish, ccd, cyo, teen_life, social, general)
+- [ ] Update news router to support filtering by category
+- [ ] Update seed script categories to match bulletin topics
+- [ ] Add filter tab UI to NewsEvents page (All, Parish, CCD, CYO, Teen Life, Social)
+- [ ] Persist selected filter in URL query param for shareability
