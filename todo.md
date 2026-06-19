@@ -1217,3 +1217,13 @@
 - [x] Audit and correct all contact info, addresses, phone numbers — confirmed from bulletin
 - [x] Audit and correct mass times — all times extracted from June 21 bulletin and seeded
 - [x] Verify corrections and run full test suite — 82/82 tests pass, 0 TS errors
+
+## Staff & Schedule Accuracy Update (June 2026)
+
+- [x] Re-seed 24 staff members from June 21 bulletin (correct enum values: clergy/staff/leadership/ministry_leader)
+- [x] Fix parish_schedule format in site_settings to use correct ParishSchedule shape (dayOfWeek, name, durationMin) matching scheduleEngine.ts
+- [x] Fix parish_info format in site_settings to use correct ParishInfo shape (city, state, zip, mapCoordinates, etc.)
+- [x] Verify Mass Times page At a Glance shows correct confession time (Sat 4:30–5:15 PM, no NaN:NaN bug)
+- [x] Verify Staff page shows all 24 members across Clergy, Parish Staff, Parish Leadership, Ministry Leaders sections
+- [ ] Upload hero image and parish photos to S3 via admin dashboard (requires user action)
+- [ ] Publish the site via the Manus UI Publish button
