@@ -1,0 +1,1 @@
+ALTER TABLE `bulletins` ADD `deletedAt` timestamp;

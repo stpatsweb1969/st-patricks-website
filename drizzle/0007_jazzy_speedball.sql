@@ -1,0 +1,20 @@
+CREATE TABLE `teen_life_registrations` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`teenFirstName` varchar(100) NOT NULL,
+	`teenLastName` varchar(100) NOT NULL,
+	`grade` varchar(10) NOT NULL,
+	`school` varchar(200),
+	`parentName` varchar(200) NOT NULL,
+	`parentEmail` varchar(320) NOT NULL,
+	`parentPhone` varchar(20) NOT NULL,
+	`address` text,
+	`interests` text,
+	`medicalNotes` text,
+	`emergencyContact` varchar(200),
+	`emergencyPhone` varchar(20),
+	`photoConsent` int DEFAULT 0,
+	`status` varchar(20) NOT NULL DEFAULT 'pending',
+	`adminNotes` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `teen_life_registrations_id` PRIMARY KEY(`id`)
+);

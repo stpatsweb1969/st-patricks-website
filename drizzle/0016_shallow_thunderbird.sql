@@ -1,0 +1,1 @@
+ALTER TABLE `events` ADD `googleCalendarEventId` varchar(500);

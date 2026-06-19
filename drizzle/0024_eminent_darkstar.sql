@@ -1,0 +1,1 @@
+ALTER TABLE `push_subscriptions` ADD `categories` varchar(500) DEFAULT 'mass_reminders,bulletin,closures,events,announcements';
