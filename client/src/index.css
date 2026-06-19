@@ -519,6 +519,18 @@
   width: 70%;
 }
 
+/* ===== Mobile Utilities ===== */
+@layer utilities {
+  /* Hide scrollbar but keep scroll functionality — used for horizontal filter tabs */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* ===== Mobile Card Compaction ===== */
 @media (max-width: 639px) {
   [data-slot="card"] {

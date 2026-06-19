@@ -13,12 +13,32 @@ import { useReveal } from "@/hooks/useReveal";
 import { toast } from "sonner";
 import PageHeader from "@/components/PageHeader";
 
+const CATEGORIES = [
+  { value: "all", label: "All" },
+  { value: "parish", label: "Parish" },
+  { value: "ccd", label: "CCD" },
+  { value: "cyo", label: "CYO" },
+  { value: "teen_life", label: "Teen Life" },
+  { value: "social", label: "Social" },
+] as const;
+
+type CategoryFilter = (typeof CATEGORIES)[number]["value"];
+
 const accentColors = [
   "border-l-[oklch(0.54_0.12_160)]",
   "border-l-[oklch(0.75_0.15_85)]",
   "border-l-[oklch(0.5_0.12_250)]",
   "border-l-[oklch(0.55_0.15_25)]",
 ];
+
+const categoryBadgeColors: Record<string, string> = {
+  parish: "bg-green-100 text-green-800",
+  ccd: "bg-blue-100 text-blue-800",
+  cyo: "bg-orange-100 text-orange-800",
+  teen_life: "bg-purple-100 text-purple-800",
+  social: "bg-yellow-100 text-yellow-800",
+  general: "bg-gray-100 text-gray-700",
+};
 
 function NewsSubscribeCTA() {
   const [email, setEmail] = useState("");
@@ -66,7 +86,7 @@ function NewsSubscribeCTA() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 via-primary/3 to-transparent border border-primary/10 p-8 sm:p-10">
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 via-primary/3 to-transparent border border-primary/10 p-6 sm:p-10">
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
 
@@ -130,7 +150,14 @@ function NewsSubscribeCTA() {
 
 export default function NewsEvents() {
   const { data: news, isLoading: newsLoading } = trpc.news.listPublished.useQuery();
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const revealRef = useReveal();
+
+  const filtered = news
+    ? activeCategory === "all"
+      ? news
+      : news.filter((p) => (p as { category?: string }).category === activeCategory)
+    : [];
 
   return (
     <PageLayout>
@@ -146,41 +173,104 @@ export default function NewsEvents() {
       />
 
       <div ref={revealRef}>
-        <section className="container py-6 sm:py-10">
+        {/* Category filter tabs */}
+        <section className="container pt-4 pb-2">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-1 px-1">
+            {CATEGORIES.map((cat) => {
+              const count = cat.value === "all"
+                ? (news?.length ?? 0)
+                : (news?.filter((p) => (p as { category?: string }).category === cat.value).length ?? 0);
+              return (
+                <button
+                  key={cat.value}
+                  onClick={() => setActiveCategory(cat.value)}
+                  className={`shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 border ${
+                    activeCategory === cat.value
+                      ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                      : "bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
+                  }`}
+                >
+                  {cat.label}
+                  {count > 0 && (
+                    <span className={`text-xs rounded-full px-1.5 py-0.5 leading-none ${
+                      activeCategory === cat.value ? "bg-white/20 text-white" : "bg-muted text-muted-foreground"
+                    }`}>
+                      {count}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="container py-4 sm:py-6">
           {newsLoading ? (
             <div className="space-y-4">
               {[1, 2, 3, 4].map((i) => (
-                <Card key={i}><CardContent className="p-6"><Skeleton className="h-6 w-3/4 mb-3" /><Skeleton className="h-4 w-full mb-2" /><Skeleton className="h-4 w-2/3" /></CardContent></Card>
-              ))}
-            </div>
-          ) : news && news.length > 0 ? (
-            <div className="space-y-4">
-              {news.map((post, idx) => (
-                <Card key={post.id} className={`reveal overflow-hidden border border-border/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] rounded-xl border-l-3 ${accentColors[idx % accentColors.length]}`}>
-                  <CardContent className="p-6 flex gap-5">
-                    {post.imageUrl && (
-                      <div className="w-24 h-24 rounded-lg overflow-hidden shrink-0 hidden sm:block">
-                        <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover" />
-                      </div>
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1.5">
-                        {idx === 0 && <Badge className="bg-primary/10 text-primary border-0 text-xs px-1.5 py-0">Latest</Badge>}
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                          {post.publishedAt ? format(new Date(post.publishedAt), "MMMM d, yyyy") : ""}
-                        </p>
-                      </div>
-                      <h3 className="font-serif text-xl font-semibold mb-2 text-foreground">{post.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-                        {post.excerpt || post.content.substring(0, 200)}
-                      </p>
-                    </div>
+                <Card key={i}>
+                  <CardContent className="p-5">
+                    <Skeleton className="h-5 w-3/4 mb-3" />
+                    <Skeleton className="h-4 w-full mb-2" />
+                    <Skeleton className="h-4 w-2/3" />
                   </CardContent>
                 </Card>
               ))}
             </div>
+          ) : filtered.length > 0 ? (
+            <div className="space-y-3">
+              {filtered.map((post, idx) => {
+                const cat = (post as { category?: string }).category;
+                return (
+                  <Card
+                    key={post.id}
+                    className={`reveal overflow-hidden border border-border/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] rounded-xl border-l-4 ${accentColors[idx % accentColors.length]}`}
+                  >
+                    <CardContent className="p-4 sm:p-6 flex gap-4">
+                      {post.imageUrl && (
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden shrink-0 hidden sm:block">
+                          <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover" />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                          {idx === 0 && activeCategory === "all" && (
+                            <Badge className="bg-primary/10 text-primary border-0 text-xs px-1.5 py-0">Latest</Badge>
+                          )}
+                          {cat && cat !== "general" && (
+                            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${categoryBadgeColors[cat] ?? "bg-gray-100 text-gray-700"}`}>
+                              {CATEGORIES.find((c) => c.value === cat)?.label ?? cat}
+                            </span>
+                          )}
+                          <p className="text-xs text-muted-foreground">
+                            {post.publishedAt ? format(new Date(post.publishedAt), "MMM d, yyyy") : ""}
+                          </p>
+                        </div>
+                        <h3 className="font-serif text-base sm:text-xl font-semibold mb-1.5 text-foreground leading-snug">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                          {post.excerpt || post.content.substring(0, 200)}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          ) : news && news.length > 0 ? (
+            <Card className="p-10 text-center border-dashed border-2 bg-secondary/20">
+              <Newspaper className="w-10 h-10 text-primary/30 mx-auto mb-3" />
+              <h3 className="font-semibold text-lg mb-2">No {CATEGORIES.find(c => c.value === activeCategory)?.label} News Yet</h3>
+              <p className="text-muted-foreground max-w-sm mx-auto mb-4">
+                Check back soon or browse another category.
+              </p>
+              <Button variant="outline" size="sm" onClick={() => setActiveCategory("all")}>
+                View All News
+              </Button>
+            </Card>
           ) : (
-            <Card className="p-12 text-center border-dashed border-2 bg-secondary/20">
+            <Card className="p-10 text-center border-dashed border-2 bg-secondary/20">
               <Newspaper className="w-10 h-10 text-primary/30 mx-auto mb-3" />
               <h3 className="font-semibold text-lg mb-2">Parish News Coming Soon</h3>
               <p className="text-muted-foreground max-w-sm mx-auto mb-3">

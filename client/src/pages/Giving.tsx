@@ -7,6 +7,7 @@ import { Heart, ExternalLink, QrCode, CreditCard, Gift, Repeat, DollarSign } fro
 import { useReveal } from "@/hooks/useReveal";
 import PageHeader from "@/components/PageHeader";
 import { useState } from "react";
+import QRCodeImage from "@/components/QRCodeImage";
 
 const SUGGESTED_AMOUNTS = [10, 25, 50, 100, 250, 500];
 const FUND_OPTIONS = [
@@ -170,10 +171,10 @@ export default function Giving() {
                 </p>
                 <div className="bg-secondary/50 rounded-lg p-4 flex flex-col items-center">
                   <div className="bg-white p-3 rounded-lg shadow-sm border">
-                    <img
-                      src="/manus-storage/venmo-qr_0815b899.png"
+                    <QRCodeImage
+                      value="https://venmo.com/StPatricksArmonk"
+                      size={128}
                       alt="Venmo QR Code for St. Patrick in Armonk"
-                      className="w-32 h-32 object-contain"
                     />
                   </div>
                   <p className="text-xs text-muted-foreground mt-2.5 text-center">
@@ -228,10 +229,10 @@ export default function Giving() {
                 </div>
                 <div className="flex flex-col items-center shrink-0">
                   <div className="bg-white p-2.5 rounded-lg shadow-sm border">
-                    <img
-                      src="/manus-storage/cardinals_appeal_qr_1b687357.png"
+                    <QRCodeImage
+                      value="https://cardinalsappeal.org"
+                      size={128}
                       alt="2026 Cardinal's Appeal QR Code"
-                      className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
                     />
                   </div>
                   <p className="text-xs text-muted-foreground mt-1.5">Scan to donate</p>

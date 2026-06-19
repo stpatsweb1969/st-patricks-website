@@ -237,41 +237,46 @@ export function HeroSection() {
 
           {/* CTA Group */}
           <div
-            className="flex flex-row flex-wrap items-center gap-3 opacity-0"
+            className="flex flex-col gap-3 opacity-0 w-full sm:w-auto"
             style={{ animation: 'fadeSlideUp 0.7s ease 0.4s forwards' }}
           >
-            <Link href="/new-here">
+            {/* Row 1: primary CTA — full width on mobile, auto on sm+ */}
+            <Link href="/new-here" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-gold text-parish-green hover:bg-gold/90 font-semibold px-7 py-3 rounded-full press-scale tracking-wide"
+                className="w-full sm:w-auto bg-gold text-parish-green hover:bg-gold/90 font-semibold px-7 py-3 rounded-full press-scale tracking-wide"
               >
                 I'm New Here
                 <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             </Link>
-            <Link href="/mass-times">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border border-white/30 text-white hover:border-white/60 hover:bg-white/10 font-semibold px-7 py-3 rounded-full press-scale backdrop-blur-sm bg-white/5"
+            {/* Row 2: secondary CTAs side by side */}
+            <div className="flex flex-row gap-3">
+              <Link href="/mass-times" className="flex-1 sm:flex-none">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border border-white/30 text-white hover:border-white/60 hover:bg-white/10 font-semibold px-5 py-3 rounded-full press-scale backdrop-blur-sm bg-white/5"
+                >
+                  Mass Times
+                </Button>
+              </Link>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=29+Cox+Avenue+Armonk+NY+10504"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none"
               >
-                Mass Times
-              </Button>
-            </Link>
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=29+Cox+Avenue+Armonk+NY+10504"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="border border-white/30 text-white hover:border-white/60 hover:bg-white/10 font-semibold px-7 py-3 rounded-full press-scale backdrop-blur-sm bg-white/5"
-              >
-                <MapPin className="w-4 h-4 mr-1.5" />
-                Get Directions
-              </Button>
-            </a>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border border-white/30 text-white hover:border-white/60 hover:bg-white/10 font-semibold px-5 py-3 rounded-full press-scale backdrop-blur-sm bg-white/5"
+                >
+                  <MapPin className="w-4 h-4 mr-1.5" />
+                  Get Directions
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -107,6 +107,8 @@ export default function Footer({ variant = "compact" }: { variant?: "full" | "co
           .spf-desc,.spf-arrow{display:none;}
           .spf-name{font-size:12px;}
           .spf-legal{padding:9px 14px;margin-top:16px;}
+          .spf-legal-in{flex-direction:column;align-items:flex-start;gap:6px;}
+          .spf-legal p{font-size:11px;}
         }
       `}</style>
 
@@ -179,17 +181,12 @@ export default function Footer({ variant = "compact" }: { variant?: "full" | "co
             </a>{" "}
             · {city}, {state}
           </p>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
             {isAdmin ? (
               <Link href="/admin" className="spf-staff"><Shield size={11} /> Admin Dashboard</Link>
             ) : (
               <a href={getLoginUrl()} className="spf-staff"><Shield size={11} /> Staff Login</a>
             )}
-            <a className="spf-power" href="https://www.astersports.io" target="_blank" rel="noopener noreferrer">
-              <span>powered by</span>
-              <img src="/manus-storage/aster_logo_clean_854bf8b0.png" alt="" width={16} height={16} style={{ objectFit: "contain" }} />
-              <b>Aster Sports</b>
-            </a>
           </div>
         </div>
       </div>

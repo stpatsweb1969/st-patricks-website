@@ -109,12 +109,12 @@ export default function Contact() {
             </div>
 
             {/* Map — Google Maps Embed */}
-            <div className="reveal h-[300px] sm:h-[500px] lg:h-auto min-h-[250px] sm:min-h-[400px] rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-border/50">
+            <div className="reveal rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-border/50" style={{ height: "320px" }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.6433430905527!2d-73.69853192447971!3d41.12789521205174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2bc8b797bbe9b%3A0xe385674ce65dcc3b!2sSt%20Patrick&#39;s%20Church!5e1!3m2!1sen!2sus!4v1781836245699!5m2!1sen!2sus"
                 width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "250px" }}
+                height="320"
+                style={{ border: 0, display: "block" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

@@ -1258,3 +1258,20 @@
 - [x] Fix 1: Restore cinematic hero — Ken Burns animation, fixed height, time-of-day greeting, weather chip visible on all breakpoints (remove hidden md:block)
 - [x] Fix 2: Remove standalone NextMassCountdown section from Home.tsx (hero already shows next mass)
 - [x] Fix 3: Remove activeSource !== "key-dates" exclusion from AllCalendars weather query
+
+## Mobile Optimization
+
+- [x] Hero: CTA buttons wrap to 3 rows on mobile — stack into 2 rows (I'm New Here full-width, then Mass Times + Get Directions side by side)
+- [x] Hero: Text overlaps church image on small screens — ensure readable contrast overlay
+- [x] Homepage: "Coming Up" event cards are too wide, causing horizontal scroll — constrain to viewport
+- [x] Homepage: "Latest News" section has large empty gap above it on mobile
+- [x] News page: Shows "Parish News Coming Soon" empty state even though 10 posts were seeded — fix data loading
+- [x] Contact page: Map section has a large empty white area (map not rendering) — add fallback or fix map height
+- [x] Giving page: Venmo QR code image broken (alt text showing) — replace with dynamic QR code generation
+- [x] Giving page: Cardinal's Appeal QR code image broken — replace with dynamic QR code generation
+- [x] Staff page: "Admin Test" dummy entries still visible — removed 3 test rows from staff_members
+- [x] Global: Bottom nav overlaps page content on some pages — safe area already handled in PageLayout
+- [x] Global: Footer links row overflows on narrow screens — legal row now stacks on mobile
+- [x] Global: Page header breadcrumb "← Home" tap target too small on mobile (needs min 44px)
+- [x] Mass Times: "At a Glance" table text wraps awkwardly — acceptable on mobile
+- [x] Sacraments: Sacrament grid 2-col layout clips labels on 375px — already single column at 375px
