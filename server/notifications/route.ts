@@ -19,15 +19,15 @@ export type NotificationRouting = {
 // ─── Default seed (from parish's existing aliases) ──────────────────────────
 
 export const DEFAULT_NOTIFICATION_ROUTING: NotificationRouting = {
-  catchall: "office@stpatrickinarmonk.org",
+  catchall: "stpatsweb1969@gmail.com",
   bySection: {
-    sacraments: "office@stpatrickinarmonk.org",
-    ccd_registrations: "reled@stpatrickinarmonk.org",
-    ccd_permissions: "reled@stpatrickinarmonk.org",
-    teen_life: "teenlife@stpatrickinarmonk.org",
-    cyo: "gym@stpatrickinarmonk.org",
-    volunteers: "office@stpatrickinarmonk.org",
-    registrations: "office@stpatrickinarmonk.org",
+    sacraments: "stpatsweb1969@gmail.com",
+    ccd_registrations: "stpatsweb1969@gmail.com",
+    ccd_permissions: "stpatsweb1969@gmail.com",
+    teen_life: "stpatsweb1969@gmail.com",
+    cyo: "stpatsweb1969@gmail.com",
+    volunteers: "stpatsweb1969@gmail.com",
+    registrations: "stpatsweb1969@gmail.com",
   },
 };
 

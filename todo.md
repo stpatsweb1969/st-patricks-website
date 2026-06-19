@@ -1184,7 +1184,7 @@
 - [x] All 82 vitest tests passing
 - [x] Zero TypeScript errors
 - [x] Push final code back to GitHub repository
-- [ ] Configure Google Maps API key for map features (requires user to provide key)
+- [x] Configure Google Maps embed on Contact page (direct iframe, no API key needed)
 - [x] Seed ICS URLs for Parish, CCD, and CYO calendars via seed script
 - [ ] Upload hero image and parish photos to S3 via admin dashboard (requires user action)
 - [x] Seed all 22 staff members via seed script

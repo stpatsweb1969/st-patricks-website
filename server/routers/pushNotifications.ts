@@ -10,7 +10,7 @@ import webpush from "web-push";
 // Configure web-push with VAPID keys
 if (ENV.vapidPublicKey && ENV.vapidPrivateKey) {
   webpush.setVapidDetails(
-    "mailto:admin@stpatricksarmonk.org",
+    "mailto:stpatsweb1969@gmail.com",
     ENV.vapidPublicKey,
     ENV.vapidPrivateKey
   );
