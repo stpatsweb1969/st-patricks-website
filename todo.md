@@ -1169,3 +1169,23 @@
 - [x] Fix crash when clicking FRI 19 in This Week: "adoration" type missing from typeStyles in scheduleConfig.ts
 - [x] Fix: September 12:30 PM Sunday Mass should resume Sept 13 (not excluded entire month). Bulletin says "No 12:30 Mass July 5 – September 6 (Resumes 9/13/26)"
 - [x] Fix: First Friday Adoration should only show on first Friday of each month, not every Friday
+
+## Manus Platform Migration (June 2026)
+
+- [x] Initialise Manus web project (db, server, user features)
+- [x] Migrate full codebase from astersports/st-patricks-armonk to stpatsweb1969/st-patricks-website
+- [x] Install all required dependencies (web-push, react-pdf, ical, etc.)
+- [x] Apply full database schema (34 tables) via drizzle-kit push
+- [x] Restore server/routers.ts to point to full modular router index
+- [x] Restore server/db.ts to re-export from modular db helpers
+- [x] Add middleware export to server/_core/trpc.ts
+- [x] Add VAPID keys to server/_core/env.ts
+- [x] Set VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY secrets
+- [x] All 82 vitest tests passing
+- [x] Zero TypeScript errors
+- [ ] Push final code back to GitHub repository
+- [ ] Configure Google Maps API key for map features
+- [ ] Configure Google Calendar ICS feed URL for events sync
+- [ ] Upload hero image and parish photos to S3 via admin dashboard
+- [ ] Add initial staff members via admin dashboard
+- [ ] Publish the site via the Manus UI Publish button

@@ -18,7 +18,8 @@ function getForgeConfig() {
 }
 
 function normalizeKey(relKey: string): string {
-  return relKey.replace(/^\/+/, "");
+  // Remove leading slashes and sanitize spaces/special chars that cause CloudFront signed URL issues
+  return relKey.replace(/^\/+/, "").replace(/[\s]+/g, "-");
 }
 
 function appendHashSuffix(relKey: string): string {
