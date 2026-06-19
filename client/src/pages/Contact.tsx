@@ -2,24 +2,11 @@ import PageLayout from "@/components/PageLayout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
-import { MapView } from "@/components/Map";
-import { useCallback } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import PageHeader from "@/components/PageHeader";
 
 export default function Contact() {
   const revealRef = useReveal();
-
-  const handleMapReady = useCallback((map: google.maps.Map) => {
-    const position = { lat: 41.1268, lng: -73.7140 };
-    map.setCenter(position);
-    map.setZoom(15);
-    new google.maps.marker.AdvancedMarkerElement({
-      position,
-      map,
-      title: "St. Patrick in Armonk",
-    });
-  }, []);
 
   return (
     <PageLayout>
@@ -28,7 +15,7 @@ export default function Contact() {
         path="/contact"
         description="Contact St. Patrick Church, Armonk NY. Phone: (914) 273-9724. Address: 29 Cox Avenue, Armonk, NY 10504. Office hours and directions."
       />
-      {/* Page Header — refined */}
+      {/* Page Header */}
       <PageHeader
         eyebrow="Get in Touch"
         title="Contact Us"
@@ -106,11 +93,11 @@ export default function Contact() {
                 <CardContent className="p-5">
                   <h3 className="font-semibold text-base mb-1.5">Directions</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    St. Patrick in Armonk is located on Cox Avenue in Armonk, NY. 
+                    St. Patrick in Armonk is located on Cox Avenue in Armonk, NY.
                     The church is easily accessible from Route 22 and I-684.
                   </p>
                   <a
-                    href="https://www.google.com/maps/dir//29+Cox+Ave,+Armonk,+NY+10504"
+                    href="https://maps.app.goo.gl/pJurvjFAJpURmvmMA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block mt-3 text-sm font-medium text-primary hover:underline"
@@ -121,9 +108,18 @@ export default function Contact() {
               </Card>
             </div>
 
-            {/* Map */}
+            {/* Map — Google Maps Embed */}
             <div className="reveal h-[300px] sm:h-[500px] lg:h-auto min-h-[250px] sm:min-h-[400px] rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-border/50">
-              <MapView onMapReady={handleMapReady} className="w-full h-full" />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.6433430905527!2d-73.69853192447971!3d41.12789521205174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2bc8b797bbe9b%3A0xe385674ce65dcc3b!2sSt%20Patrick&#39;s%20Church!5e1!3m2!1sen!2sus!4v1781836245699!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "250px" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="St. Patrick in Armonk — Google Maps"
+              />
             </div>
           </div>
         </section>
