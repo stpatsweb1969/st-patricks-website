@@ -306,9 +306,7 @@ class SDKServer {
       lastSignedIn: signedInAt,
     });
 
-    // Re-read user after upsert since role may have been promoted (e.g. owner -> admin)
-    const freshUser = await db.getUserByOpenId(user.openId);
-    return freshUser || user;
+    return user;
   }
 }
 

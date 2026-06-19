@@ -167,38 +167,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          // Vendor: React core
-          "vendor-react": ["react", "react-dom"],
-          // Vendor: UI framework (Radix primitives)
-          "vendor-radix": [
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-select",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-tooltip",
-            "@radix-ui/react-dropdown-menu",
-          ],
-          // Vendor: tRPC + tanstack-query
-          "vendor-trpc": ["@trpc/client", "@trpc/react-query", "@tanstack/react-query"],
-          // Vendor: Utilities
-          "vendor-utils": ["lucide-react", "clsx", "sonner", "wouter"],
-          // Vendor: Rich text editor (TipTap)
-          "vendor-tiptap": [
-            "@tiptap/react",
-            "@tiptap/starter-kit",
-            "@tiptap/extension-placeholder",
-            "@tiptap/extension-underline",
-            "@tiptap/extension-text-align",
-          ],
-          // Vendor: PDF viewer
-          "vendor-pdf": ["react-pdf"],
-        },
-      },
-    },
   },
   server: {
     host: true,
