@@ -86,7 +86,7 @@ export async function handleWeeklyDigest(): Promise<{ sent: number; total: numbe
   const rawEvents = await db.getUpcomingEvents(7);
   const events = rawEvents.map(e => ({ title: e.title, eventDate: e.startDate, location: e.location }));
   const allNews = await db.getPublishedNewsPosts(3);
-  const bulletins = await db.getPublishedBulletins(1);
+  const bulletins = (await db.getPublishedBulletins()).slice(0, 1);
   const latestBulletin = bulletins[0] || null;
 
   const news = allNews.map(n => ({

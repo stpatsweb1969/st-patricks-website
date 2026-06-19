@@ -215,7 +215,7 @@ export const parishAssistantRouter = router({
       }
 
       // Latest bulletin
-      const bulletins = await db.getPublishedBulletins(1);
+      const bulletins = (await db.getPublishedBulletins()).slice(0, 1);
       if (bulletins.length > 0) {
         const b = bulletins[0];
         dynamicContext += `\n\nLATEST BULLETIN: "${b.title}" published ${new Date(b.publishedAt!).toLocaleDateString("en-US", { month: "short", day: "numeric" })}. Available at /bulletins on the website.\n`;

@@ -24,7 +24,7 @@ async function gatherWeeklyAnalytics() {
   const upcomingEvents = await db.getUpcomingEvents(7);
 
   // Recent bulletins
-  const bulletins = await db.getPublishedBulletins(5);
+  const bulletins = (await db.getPublishedBulletins()).slice(0, 5);
   const thisWeekBulletins = bulletins.filter(
     (b: any) => new Date(b.createdAt) >= sevenDaysAgo
   );

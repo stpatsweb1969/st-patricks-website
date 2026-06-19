@@ -1192,7 +1192,17 @@
 
 ## Recent Changes Sync (June 2026)
 
-- [ ] Pull latest commits from astersports/st-patricks-armonk
-- [ ] Diff all changed files between old repo and new build
-- [ ] Apply all missing/updated files to the new build
-- [ ] Verify tests pass and build is clean after sync
+- [x] Pull latest commits from astersports/st-patricks-armonk
+- [x] Diff all changed files between old repo and new build
+- [x] Apply all missing/updated files to the new build (40 files synced)
+- [x] Verify tests pass and build is clean after sync (82/82 pass, 0 TS errors)
+
+## Bulletin Archive (June 2026)
+
+- [x] Scrape all bulletin URLs from stpatrickinarmonk.org/bulletins (560 bulletins, July 2015 – June 2026)
+- [x] Seed all 560 bulletins into the database (stored as stable eCatholic CDN URLs, no re-upload needed)
+- [x] Remove 100-row cap from getPublishedBulletins DB helper (now returns all)
+- [x] Fix callers in scheduledAnalytics.ts, scheduledDigest.ts, parishAssistant.ts to use .slice()
+- [x] Bulletin archive page renders with month/year dropdowns and search (28 pages, 20 per page)
+- [x] Latest bulletin (June 21, 2026) shown in PDF viewer at top of page
+- [x] All 82 tests pass, 0 TypeScript errors after changes

@@ -41,13 +41,12 @@ export async function getDeletedBulletins() {
     .orderBy(desc(bulletins.deletedAt));
 }
 
-export async function getPublishedBulletins(limit = 100) {
+export async function getPublishedBulletins() {
   const db = await getDb();
   if (!db) return [];
   return db.select().from(bulletins)
     .where(and(eq(bulletins.published, true), isNull(bulletins.deletedAt)))
-    .orderBy(desc(bulletins.weekDate))
-    .limit(limit);
+    .orderBy(desc(bulletins.weekDate));
 }
 
 export async function getAllBulletins() {
