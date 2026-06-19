@@ -1239,8 +1239,8 @@
 
 ## Key Dates 2026-2027 Update (June 2026)
 
-- [ ] Clear existing 2026-2027 key dates and re-seed from bulletin sheet (BBQ excluded)
-- [ ] Seed all 2026 events (Sept–Dec) with correct dates, categories, and locations
-- [ ] Seed all 2027 events (Jan–June) with correct dates, categories, and locations
-- [ ] Wire NextMassCountdown component into homepage below This Week section
-- [ ] Upgrade hero countdown to tick every second
+- [x] Clear existing 2026-2027 key dates and re-seed from bulletin sheet (BBQ excluded)
+- [x] Seed all 2026 events (Sept–Dec) with correct dates, categories, and locations
+- [x] Seed all 2027 events (Jan–June) with correct dates, categories, and locations
+- [x] Wire NextMassCountdown component into homepage below This Week section
+- [x] Upgrade hero countdown to tick every second
