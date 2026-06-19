@@ -1189,3 +1189,10 @@
 - [ ] Upload hero image and parish photos to S3 via admin dashboard (requires user action)
 - [x] Seed all 22 staff members via seed script
 - [ ] Publish the site via the Manus UI Publish button
+
+## Recent Changes Sync (June 2026)
+
+- [ ] Pull latest commits from astersports/st-patricks-armonk
+- [ ] Diff all changed files between old repo and new build
+- [ ] Apply all missing/updated files to the new build
+- [ ] Verify tests pass and build is clean after sync

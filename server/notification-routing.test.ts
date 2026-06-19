@@ -37,7 +37,7 @@ describe("routeNotification", () => {
 
     // Should send to sacraments alias
     expect(sendEmail).toHaveBeenCalledWith(
-      "office@stpatrickinarmonk.org",
+      "stpatsweb1969@gmail.com",
       "[St. Patrick] New Baptism Request",
       expect.stringContaining("New Baptism Request")
     );
@@ -57,14 +57,14 @@ describe("routeNotification", () => {
 
     // First call = section recipient (reled@)
     expect(sendEmail).toHaveBeenCalledWith(
-      "reled@stpatrickinarmonk.org",
+      "stpatsweb1969@gmail.com",
       "[St. Patrick] CCD Registration",
       expect.stringContaining("CCD Registration")
     );
 
     // Second call = BCC to catchall (office@)
     expect(sendEmail).toHaveBeenCalledWith(
-      "office@stpatrickinarmonk.org",
+      "stpatsweb1969@gmail.com",
       "[St. Patrick] CCD Registration",
       expect.stringContaining("CCD Registration")
     );
@@ -80,7 +80,7 @@ describe("routeNotification", () => {
     // Only one sendEmail call — to catchall
     expect(sendEmail).toHaveBeenCalledTimes(1);
     expect(sendEmail).toHaveBeenCalledWith(
-      "office@stpatrickinarmonk.org",
+      "stpatsweb1969@gmail.com",
       "[St. Patrick] FAQ Submission",
       expect.stringContaining("FAQ Submission")
     );
@@ -114,7 +114,7 @@ describe("getRoutingConfig", () => {
   it("returns DEFAULT_NOTIFICATION_ROUTING when no DB value exists", async () => {
     const config = await getRoutingConfig();
     expect(config).toEqual(DEFAULT_NOTIFICATION_ROUTING);
-    expect(config.catchall).toBe("office@stpatrickinarmonk.org");
-    expect(config.bySection.ccd_registrations).toBe("reled@stpatrickinarmonk.org");
+    expect(config.catchall).toBe("stpatsweb1969@gmail.com");
+    expect(config.bySection.ccd_registrations).toBe("stpatsweb1969@gmail.com");
   });
 });
