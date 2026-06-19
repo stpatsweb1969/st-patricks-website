@@ -1206,3 +1206,14 @@
 - [x] Bulletin archive page renders with month/year dropdowns and search (28 pages, 20 per page)
 - [x] Latest bulletin (June 21, 2026) shown in PDF viewer at top of page
 - [x] All 82 tests pass, 0 TypeScript errors after changes
+
+## Official Site Accuracy Audit (June 2026)
+
+- [ ] Scrape all pages of the official site (stpatrickinarmonk.org) for accurate content
+- [ ] Audit and correct staff names, roles, and contact info
+- [ ] Audit and correct program descriptions (CCD, Teen Life, RCIA, CYO, ministries)
+- [ ] Audit and correct parish history and about content
+- [ ] Audit and correct sacrament descriptions and policies
+- [ ] Audit and correct all contact info, addresses, phone numbers
+- [ ] Audit and correct any other inaccurate page content
+- [ ] Verify corrections and run full test suite

@@ -54,7 +54,7 @@ export function HeroSection() {
       {/* Full image — no cropping, no scaling, fills width and uses natural aspect ratio */}
       <div className="absolute inset-0">
         <img
-          src="/manus-storage/StPatrick-Outside_971c848e.jpeg"
+          src="/manus-storage/church-exterior_60bbb0cd.webp"
           alt="St. Patrick's Church front exterior"
           className="w-full h-full object-cover object-center"
         />
